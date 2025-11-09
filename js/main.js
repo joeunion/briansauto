@@ -229,10 +229,44 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ==========================================
+    // Sticky Mobile CTA
+    // ==========================================
+    const stickyCta = document.getElementById('sticky-cta');
+    const heroSection = document.querySelector('.hero');
+
+    function updateStickyCta() {
+        if (!stickyCta || !heroSection) return;
+
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        const scrollPosition = window.pageYOffset;
+
+        // Show sticky CTA after scrolling past hero section
+        if (scrollPosition > heroBottom - 100) {
+            stickyCta.classList.add('visible');
+        } else {
+            stickyCta.classList.remove('visible');
+        }
+    }
+
+    // Update on scroll
+    window.addEventListener('scroll', function() {
+        if (scrollTimeout) {
+            window.cancelAnimationFrame(scrollTimeout);
+        }
+
+        scrollTimeout = window.requestAnimationFrame(function() {
+            highlightActiveNavLink();
+            updateHeaderOnScroll();
+            updateStickyCta();
+        });
+    });
+
+    // ==========================================
     // Initialize
     // ==========================================
     highlightActiveNavLink();
     updateHeaderOnScroll();
+    updateStickyCta();
 
     console.log('Brian\'s Automotive website initialized successfully!');
 });
