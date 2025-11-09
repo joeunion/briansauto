@@ -249,8 +249,8 @@ ul {
 }
 
 .badge-image {
-    width: 100%;
     max-width: 576px;
+    width: 100%;
     height: auto;
     animation: fadeIn 0.8s ease-out;
 }
@@ -787,9 +787,13 @@ ul {
 }
 
 .sticky-business-name {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--text-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60%;
 }
 
 .sticky-cta-rating {
@@ -984,7 +988,7 @@ ul {
     }
 
     .badge-image {
-        max-width: 100%;
+        max-width: 350px;
     }
 
     .hero-title {
