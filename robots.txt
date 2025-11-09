@@ -1,0 +1,11 @@
+# robots.txt for Brian's Automotive & Performance
+# https://brians-auto.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://brians-auto.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1
